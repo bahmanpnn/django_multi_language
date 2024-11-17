@@ -13,5 +13,11 @@
 <body>
     <h2>{% trans 'this is home page' %}</h2>
     <h5>{{data}}</h5>
+    <hr>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.title }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

@@ -75,3 +75,35 @@ and it is rosseta ==>
 
 
 
+
+
+
+_________________________________________________________________________________________________________________
+**next step is using translation packages for handleling model fields in django.there are 2 ways to handle it and have
+some diffrences with each other.for way one there is parler package and for it in database need to add 2 data(row) for
+every object in tables and it is not good for seo and in big projects that work with many data decrease performance of site
+
+*but second way is using django-modeltranslation package.this way add column for every language in every field of models that we want
+ to translate in database tables and uses in every language mode of our site==>
+ https://django-modeltranslation.readthedocs.io/en/latest/installation.html
+
+1- pip install django-modeltranslation
+2- add 'modeltranslation' in installed apps
+3- create translation.py in every app that want use and translate models of that
+4- add fields of every models that want in a class(for every model must separate classes and set fields)==>
+
+from modeltranslation.translator import TranslationOptions,register
+from .models import Product
+
+
+@register(Product)
+class ProductTranslationOption(TranslationOptions):
+    fields = ['title']
+
+5- python manage.py migrate and done.now in admin panel we can see some fields for translated meaning of fields we set
+
+
+
+
+
+
