@@ -1,0 +1,77 @@
+# https://docs.djangoproject.com/en/5.1/topics/i18n/ or test driven website multi language in django
+
+1- install gettext shared model(that handle ddl files)
+2- config LANGUAGES and LOCALE_PATHS in settings ==>
+LANGUAGES = [
+    ('fa', 'persian'),
+    ('en', 'english'),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
+
+3- in template that need use it and load i18n and every field that need to translate just must put it in trans item==>
+<h2>{% trans 'this is home page' %}</h2>
+4- python manage.py has a command to collect all messages for translating and if you want ignore something or just collect
+one target language in that command==>python manage.py makemessages -l <fa,en or it,...> --ignore venv
+5- now after run that command you can edit file.po of other languages that want to use and done.but for django to
+understand that when must use translated words and sentences must set i18n_patterns like static and media urls in
+settings ===>
+
+urlpatterns = []
+
+urlpatterns += i18n_patterns(
+    path('admin/', admin.site.urls),
+    path('', include('home_module.urls')),
+    prefix_default_language=False
+    # if it is False it doesn't display default language in url==> # website.com/en/==>website.com
+)
+
+
+6- MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # new
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+7- now still doesnt use translated mssges and just urls change,last step is to run this command(to mage django.mo file in locale path) and boom!!==>
+python manage.py compilemessages --ignore venv
+django-admin compilemessages --ignore venv
+
+
+------ translation in python files
+# it is for all static files and words in templates.now if you want to translate in python files must try this way
+1- use gettext or gettext_lazy module
+2- again run makemessages command and write translated words in .po file
+3- run compliemessages and done again you can see translated words!!
+
+
+from django.utils.translation import gettext_lazy as _
+
+def index(request):
+    context = {
+        'data': _('hello world!!')
+    }
+
+    return render(request, 'home_module/index.html', context)
+
+
+
+_______________________________________________________________________________________________________________
+*** we can use poedit or translate all the world one by one but it is not easy.now is another way to translate .po files,
+and it is rosseta ==>
+1- first must install it in project==>ppip install django-rosetta
+2- add it in settings apps ==>'rosetta'
+3- add urls in main urls with include and done =>path('rosetta/',include('rosetta.urls'))
+4- just for understandig our .po files must set ROSETTA_LANGUAGES=[] too in settings
+
+
+
+
+
