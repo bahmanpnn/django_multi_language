@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-17 17:16+0330\n"
+"POT-Creation-Date: 2024-11-17 23:07+0330\n"
 "PO-Revision-Date: 2024-11-17 18:32+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,6 @@ msgstr "صفحه اصلی"
 msgid "this is home page"
 msgstr "این صفحه اصلی می باشد"
 
-#: .\home_module\views.py:7
+#: .\home_module\views.py:9
 msgid "hello world!!"
 msgstr "سلام دنیا!!"
