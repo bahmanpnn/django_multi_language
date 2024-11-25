@@ -9,20 +9,6 @@ from django.shortcuts import render
 from django.utils.translation import gettext as _
 
 
-def index(request):
-    products = Product.objects.all()
-
-    context = {
-        'data': _('hello world!!'),
-        'products': products,
-        'selected_language': request.LANGUAGE_CODE,  # This gets the current language
-    }
-
-    return render(request, 'home_module/index2.html', context)
-
-
-# ****it works too but before function of this, is cleaner
-
 # def index(request):
 #     # Get the selected language from the GET parameters
 #     selected_language = request.GET.get('language', None)
@@ -42,4 +28,20 @@ def index(request):
 #         'products': products,
 #         'selected_language': current_language,  # Pass the current language to the template
 #     })
+
+# ****it works too but next one is better
+
+def index(request):
+    products = Product.objects.all()
+
+    context = {
+        'data': _('hello world!!'),
+        'products': products,
+        'selected_language': request.LANGUAGE_CODE,  # This gets the current language
+    }
+
+    return render(request, 'home_module/index2.html', context)
+
+
+
 
