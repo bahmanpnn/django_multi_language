@@ -5,10 +5,6 @@ from django.shortcuts import render, redirect
 from django.utils.translation import activate, get_language
 
 
-from django.shortcuts import render
-from django.utils.translation import gettext as _
-
-
 # def index(request):
 #     # Get the selected language from the GET parameters
 #     selected_language = request.GET.get('language', None)
@@ -29,7 +25,7 @@ from django.utils.translation import gettext as _
 #         'selected_language': current_language,  # Pass the current language to the template
 #     })
 
-# ****it works too but next one is better
+# ****it works too but next one is better and clean
 
 def index(request):
     products = Product.objects.all()
