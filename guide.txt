@@ -1,6 +1,6 @@
 # https://docs.djangoproject.com/en/5.1/topics/i18n/ or test driven website multi language in django
 
-1- install gettext shared model(that handle ddl files)
+1- install gettext shared model(that handle ddl files) ===> https://www.gnu.org/software/gettext/
 2- config LANGUAGES and LOCALE_PATHS in settings ==>
 LANGUAGES = [
     ('fa', 'persian'),
