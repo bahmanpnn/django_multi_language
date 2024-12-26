@@ -1,5 +1,5 @@
 # Django Multi Language
-## if you want to add a multi language with django,this project can helps you to use it for your project.my django multi language project has 2 language.main language is english and second one is persian and with a form you can change it.
+## if you want to have a multi language website project with django,this project can helps you to use it for your project.my django multi language project has 2 language.main language is english and second one is persian and with a form you can change it.
 ### in this project i used rosseta package to handle word translating and get text app to find words in files of project.
 # How To Use
 ### 0-download get text app for your system (if you have windows can download from this source) ==> [download](https://mlocati.github.io/articles/gettext-iconv-windows.html)
